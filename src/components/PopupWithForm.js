@@ -4,18 +4,26 @@ function PopupWithForm(props) {
   return (
     <div className={`popup popup_type_${props.name} ${props.isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container">
-        <button className="popup__close-button" type="button" onClick={props.onClose} aria-label="Закрыть">
-        </button>
+        <button
+          className="popup__close-button"
+          type="button"
+          onClick={props.onClose}
+          aria-label="Закрыть"
+        />
         <h3 className="popup__heading">{props.heading}</h3>
         <form
           className="popup__form"
           name={`${props.name}`}
           action="#"
+          onSubmit={props.onSubmit}
           noValidate>
           <fieldset className="popup__fieldset">
             {props.children}
-            <button className="popup__submit-button" type="submit" aria-label={props.submit}>
-            {props.submit}
+            <button
+              className="popup__submit-button"
+              type="submit"
+              aria-label={props.submit}>
+              {props.submit}
             </button>
           </fieldset>
         </form>
